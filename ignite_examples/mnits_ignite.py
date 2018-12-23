@@ -68,7 +68,6 @@ pbar = tqdm(
 @trainer.on(Events.ITERATION_COMPLETED)
 def log_training_loss(engine):
     iter = (engine.state.iteration - 1) % len(train_loader) + 1
-
     pbar.desc = desc.format(engine.state.output)
     pbar.update(1)
 

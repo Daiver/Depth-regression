@@ -15,6 +15,7 @@ class NyuDepthDataset:
         images = np.moveaxis(images, [1, 2], [3, 2])
         depths = f['depths']
         depths = np.moveaxis(depths, 1, 2)
+        depths = depths.reshape(depths.shape + (1,))
 
         return NyuDepthDataset(images, depths, transform)
 
